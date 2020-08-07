@@ -1,0 +1,106 @@
+﻿<#	
+	.NOTES
+	===========================================================================
+	 Created with: 	SAPIEN Technologies, Inc., PowerShell Studio 2020 v5.7.174
+	 Created on:   	4/7/2020 11:58
+	 Created by:   	Claussen
+	 Organization: 	NEOnet
+	 Filename:     	BuildURIComponents.ps1
+	===========================================================================
+	.DESCRIPTION
+		A description of the file.
+#>
+
+
+
+function BuildURIComponents {
+    [CmdletBinding()]
+    [OutputType([hashtable])]
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.Collections.ArrayList]$URISegments,
+        
+        [Parameter(Mandatory = $true)]
+        [object]$ParametersDictionary,
+        
+        [string[]]$SkipParameterByName
+    )
+    
+    Write-Verbose "Building URI components"
+    
+    $URIParameters = @{}
+    
+    foreach ($CmdletParameterName in $ParametersDictionary.Keys) {
+        if ($CmdletParameterName -in $script:FortigateURICommonParameterNamesToIgnore) {
+            # These are common parameters and should not be appended to the URI
+            Write-Debug "Skipping common parameter [$CmdletParameterName]"
+            continue
+        }
+        
+        if ($CmdletParameterName -in $SkipParameterByName) {
+            Write-Debug "Skipping parameter [$CmdletParameterName] by SkipParameterByName"
+            continue
+        }
+        
+        switch ($CmdletParameterName) {
+            "format" {
+                $URIParameters['format'] = $ParametersDictionary[$CmdletParameterName] -join '|'
+                
+                break
+            }
+            
+            'vdom' {
+                $URIParameters['vdom'] = $ParametersDictionary[$CmdletParameterName] -join ','
+                
+                break
+            }
+            
+            'WithMeta' {
+                $URIParameters['with_meta'] = $ParametersDictionary[$CmdletParameterName]
+                
+                break
+            }
+            
+            #            "id" {
+            #                # Check if there is one or more values for Id and build a URI or query as appropriate
+            #                if (@($ParametersDictionary[$CmdletParameterName]).Count -gt 1) {
+            #                    Write-Verbose " Joining IDs for parameter"
+            #                    $URIParameters['id__in'] = $ParametersDictionary[$CmdletParameterName] -join ','
+            #                } else {
+            #                    Write-Verbose " Adding ID to segments"
+            #                    [void]$uriSegments.Add($ParametersDictionary[$CmdletParameterName])
+            #                }
+            #                
+            #                break
+            #            }
+            #            
+            #            'Query' {
+            #                Write-Verbose " Adding query parameter"
+            #                $URIParameters['q'] = $ParametersDictionary[$CmdletParameterName]
+            #                break
+            #            }
+            #            
+            #            'CustomFields' {
+            #                Write-Verbose " Adding custom field query parameters"
+            #                foreach ($field in $ParametersDictionary[$CmdletParameterName].GetEnumerator()) {
+            #                    Write-Verbose "  Adding parameter 'cf_$($field.Key) = $($field.Value)"
+            #                    $URIParameters["cf_$($field.Key.ToLower())"] = $field.Value
+            #                }
+            #                
+            #                break
+            #            }
+            
+            default {
+                Write-Verbose " Adding [$($CmdletParameterName.ToLower())] parameter"
+                $URIParameters[$CmdletParameterName.ToLower()] = $ParametersDictionary[$CmdletParameterName]
+                break
+            }
+        }
+    }
+    
+    return @{
+        'Segments' = [System.Collections.ArrayList]$URISegments
+        'Parameters' = $URIParameters
+    }
+}

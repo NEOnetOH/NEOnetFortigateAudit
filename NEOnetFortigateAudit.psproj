@@ -1,0 +1,48 @@
+﻿<Project Synchronized="False" SyncFilter="*.ps1;*.psm1;*.psd1;*.ps1xml;*.psf;*.pss;*.xml;*.help.txt" AutoExportFunctions="True" AutoExportPS1XMLFiles="True">
+  <Version>2.1</Version>
+  <FileID>aa77ddc5-7a32-4271-9f4e-61b914d119ad</FileID>
+  <ProjectType>1</ProjectType>
+  <Folders>
+    <Folder>Functions</Folder>
+    <Folder>Functions\Public</Folder>
+    <Folder>Functions\Private</Folder>
+    <Folder>Functions\Public\Setup</Folder>
+    <Folder>Functions\Public\System</Folder>
+    <Folder>Functions\Public\Firewall</Folder>
+    <Folder>Functions\Public\Router</Folder>
+  </Folders>
+  <Files>
+    <File Build="2">NEOnetFortigateAudit.psd1</File>
+    <File Build="0" ExportFunctions="True">NEOnetFortigateAudit.psm1</File>
+    <File Build="1" Shared="False" ReferenceFunction="Invoke-Test-Module_ps1" ExportFunctions="False">Test-Module.ps1</File>
+    <File Build="1">.gitignore</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Get-FortigateAPIToken_ps1" ExportFunctions="True">Functions\Public\Setup\Get-FortigateAPIToken.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-BuildNewURI_ps1" ExportFunctions="True">Functions\Private\BuildNewURI.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-SetupFortigateConfigVariable_ps1" ExportFunctions="True">Functions\Private\SetupFortigateConfigVariable.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Get-FortigateHostname_ps1" ExportFunctions="True">Functions\Public\Setup\Get-FortigateHostname.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Set-FortigateAPIToken_ps1" ExportFunctions="True">Functions\Public\Setup\Set-FortigateAPIToken.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Set-FortigateHostname_ps1" ExportFunctions="True">Functions\Public\Setup\Set-FortigateHostname.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Connect-FortigateAPI_ps1" ExportFunctions="True">Functions\Public\Setup\Connect-FortigateAPI.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-VerifyAPIConnectivity_ps1" ExportFunctions="True">Functions\Private\VerifyAPIConnectivity.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-InvokeFortigateRequest_ps1" ExportFunctions="True">Functions\Private\InvokeFortigateRequest.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-GetFortigateConfigVariable_ps1" ExportFunctions="True">Functions\Private\GetFortigateConfigVariable.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Get-FortigateSystemInterface_ps1" ExportFunctions="True">Functions\Public\System\Get-FortigateSystemInterface.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-BuildURIComponents_ps1" ExportFunctions="True">Functions\Private\BuildURIComponents.ps1</File>
+    <File Build="2" Shared="True" ReferenceFunction="Invoke-SetupFortigateURICommonParameters_ps1" ExportFunctions="False">Functions\Private\SetupFortigateURICommonParameters.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Get-FortigateSystemVDOM_ps1" ExportFunctions="True">Functions\Public\System\Get-FortigateSystemVDOM.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Get-FortigateFirewallServiceCustom_ps1" ExportFunctions="True">Functions\Public\Firewall\Get-FortigateFirewallServiceCustom.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Get-FortigateFirewallServiceGroup_ps1" ExportFunctions="True">Functions\Public\Firewall\Get-FortigateFirewallServiceGroup.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Get-FortigateFirewallAddress_ps1" ExportFunctions="True">Functions\Public\Firewall\Get-FortigateFirewallAddress.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Get-FortigateFirewallPolicy_ps1" ExportFunctions="True">Functions\Public\Firewall\Get-FortigateFirewallPolicy.ps1</File>
+    <File Build="2" Shared="True" ReferenceFunction="Invoke-Get-FortigateFirewallVIP_ps1" ExportFunctions="False">Functions\Public\Firewall\Get-FortigateFirewallVIP.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Get-FortigateRouterStaticRoute_ps1" ExportFunctions="True">Functions\Public\Router\Get-FortigateRouterStaticRoute.ps1</File>
+    <File Build="1" Shared="False" ReferenceFunction="Invoke-deploy_ps1" ExportFunctions="False">deploy.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Set-FortigateRequestTimeout_ps1" ExportFunctions="True">Functions\Public\Setup\Set-FortigateRequestTimeout.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Get-FortigateRequestTimeout_ps1" ExportFunctions="True">Functions\Public\Setup\Get-FortigateRequestTimeout.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Assert-FortigateAPIIsConnected_ps1" ExportFunctions="True">Functions\Public\Setup\Assert-FortigateAPIIsConnected.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Get-FortigateSystemStatus_ps1" ExportFunctions="True">Functions\Public\System\Get-FortigateSystemStatus.ps1</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-CheckFortigateIsConnected_ps1" ExportFunctions="True">Functions\Private\CheckFortigateIsConnected.ps1</File>
+    <File Build="2" Shared="True" ReferenceFunction="Invoke-Get-FortigateFirewallAddressGroup_ps1" ExportFunctions="False">Functions\Public\Firewall\Get-FortigateFirewallAddressGroup.ps1</File>
+  </Files>
+  <StartupScript>D:\git\NEOnetFortigateAudit\Test-Module.ps1</StartupScript>
+</Project>
